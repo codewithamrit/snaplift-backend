@@ -316,7 +316,8 @@ app.get('/api/health', (req, res) => {
   res.json({ ok: true });
 });
 
-app.listen(PORT, () => {
-  console.log(`Snaplift backend listening on http://localhost:${PORT}`);
+// Explicitly pass '0.0.0.0' as the host argument so Railway can route traffic to it
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Snaplift backend listening on port ${PORT}`);
   console.log(`Make sure yt-dlp is installed and up to date: yt-dlp -U`);
 });
