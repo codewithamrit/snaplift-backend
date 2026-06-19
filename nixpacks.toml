@@ -1,0 +1,5 @@
+# nixpacks.toml
+# Tells Railway to install the system dependencies your backend needs
+
+[phases.setup]
+nixPkgs = ["...", "ffmpeg", "yt-dlp"]
