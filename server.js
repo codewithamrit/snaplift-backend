@@ -28,6 +28,11 @@ const PORT = process.env.PORT || 8787;
 app.use(cors());
 app.use(express.json());
 
+// Add this right below app.use(express.json());
+app.get('/api/health', (req, res) => {
+  res.json({ ok: true, status: "alive" });
+});
+
 // Simple in-memory cache so re-clicking "Fetch" on the same link inside a
 // few minutes doesn't re-invoke yt-dlp every time. Keyed by URL.
 const resolveCache = new Map(); // url -> { data, expiresAt }
